@@ -12,12 +12,14 @@ lazy val scalaTestPlus = "org.scalatestplus.play" %% "scalatestplus-play" % "3.1
 
 libraryDependencies ++= Seq(guice, scalaGuice, scalaTestPlus % Test)
 
-coverageEnabled := true
 coverageExcludedPackages := "<empty>;controllers.javascript;router"
 
 dockerExposedPorts := Seq(9000)
 dockerBaseImage := "openjdk:jre-alpine"
 dockerLabels := Map[String, String]("maintainer" -> "vsabreu.dev@gmail.com")
+
+packageName in Docker := "vsabreu/lotus"
+version in Docker := "1.0.0"
 
 enablePlugins(AshScriptPlugin)
 enablePlugins(JavaAppPackaging)
