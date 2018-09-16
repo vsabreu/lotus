@@ -13,11 +13,8 @@ class OverallResult @Inject()(mapper: GroupedLapInputMapper) extends BaseResult 
   override def process(laps: Seq[LapInput]): JsValue = laps match {
     case Nil => JsArray.empty
     case _ => {
-
-      val pilots = mapper.map(laps).sortBy(_.totalTime.getMillis)
-      val pilotsFinalLaps = finalLaps(pilots)
-
-      val results = ((1 to pilotsFinalLaps.size) zip pilotsFinalLaps).map {
+      val pilots = finalLaps(mapper.map(laps)).sortBy(_.totalTime.getMillis)
+      val results = ((1 to pilots.size) zip pilots).map {
         case (rank, pilot) =>
         Json.obj(
           "rank" -> rank,
