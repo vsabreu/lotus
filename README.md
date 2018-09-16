@@ -1,5 +1,6 @@
 # Lotus 
 [![CircleCI](https://circleci.com/gh/vsabreu/lotus.svg?style=shield)](https://circleci.com/gh/vsabreu/lotus)
+![GitHub tag](https://img.shields.io/github/tag/vsabreu/lotus.svg)
 
 - [Overview](#overview)
 - [Main Purposes](#main-purposes)
