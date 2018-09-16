@@ -1,7 +1,8 @@
 import com.google.inject.AbstractModule
 import com.google.inject.multibindings.Multibinder
-import mappers.GroupedLapInputMapper
 import net.codingwell.scalaguice.ScalaModule
+
+import mappers.GroupedLapInputMapper
 import results.{BaseResult, OverallResult}
 
 class Module extends AbstractModule with ScalaModule {

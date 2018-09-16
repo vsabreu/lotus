@@ -20,12 +20,6 @@ class GroupedLapInputMapperSpec extends PlaySpec {
 
       grouped.size mustBe 2
       grouped.tail.size mustBe 1
-
-      val sumAvgSpd = laps.filter(_.pilotCode == "038")
-        .map(_.lapAverageSpeed)
-        .foldLeft(0.0) { (acc, i) => acc + i } / 2
-
-      grouped.head.averageSpeed mustEqual sumAvgSpd
       grouped.head.lap.pilotName mustBe "F.MASSA"
     }
   }

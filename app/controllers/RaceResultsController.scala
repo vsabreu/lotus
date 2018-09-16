@@ -3,9 +3,10 @@ package controllers
 import contexts.DefaultContext
 import controllers.validators.LapResultsRequestValidator
 import javax.inject._
+import play.api.libs.json.Json
 import play.api.mvc._
 import results.BaseResult
-
+import scala.collection.JavaConverters._
 import scala.concurrent.Future
 
 @Singleton
@@ -20,7 +21,8 @@ class RaceResultsController @Inject()(
   implicit val executionContext = context.cpulookup
 
   def raceresults() = Action.async(parseLapResultsRequest) { implicit request =>
-    Future.successful(Ok("Results will be returned here."))
+    val rs = Json.obj("results" -> results.asScala.map(r => r.create(request.body)))
+    Future.successful(Ok(rs))
   }
 
   private def parseLapResultsRequest = parse.using { _ =>
