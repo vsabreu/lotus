@@ -33,6 +33,6 @@ class RaceResultsControllerSpec extends PlaySpec with GuiceOneAppPerSuite with I
 
   private def performRequest(body: String) = {
     val request = FakeRequest(POST, "").withTextBody(body)
-    call(inject[RaceResultsController].results(), request)
+    call(inject[RaceResultsController].raceresults(), request)
   }
 }
