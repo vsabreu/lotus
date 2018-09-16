@@ -1,6 +1,6 @@
 package controllers.validators
 
-protected object LapLinePatterns {
+protected object LapLinePattern {
   private val time = """\d{2}\:\d{2}\:\d{2}\.\d{3}"""
   private val pilotCodeAndName = """\d{3}\s.\s\w*\.*\w*"""
   private val lap = """\d+"""

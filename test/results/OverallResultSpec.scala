@@ -2,9 +2,9 @@ package results
 
 import org.scalatestplus.play.PlaySpec
 
-class DefaultResultSpec extends PlaySpec {
+class OverallResultSpec extends PlaySpec {
 
-  "Default result" must {
+  "OverallResult" must {
 
     "empty results given no lap inputs" in {
 

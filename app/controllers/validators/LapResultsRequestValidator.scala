@@ -7,9 +7,9 @@ import models.LapInput
 class LapResultsRequestValidator {
 
   def validate(request: String): Either[String, Seq[LapInput]] = {
-    request.split("\n").toSeq match {
+    request.split("\n").filterNot(_.trim.isEmpty).toSeq match {
       case l if l.size <= 1 => Left("Request must contain header and laps data")
-      case l if l.head.matches(LapLinePatterns.regexp.regex) => Left ("Header not found on request")
+      case l if l.head.matches(LapLinePattern.regexp.regex) => Left ("Header not found on request")
       case l => l.tail.foldLeft[Either[String, Seq[LapInput]]](Right(List[LapInput]()))(reducer)
     }
   }
@@ -20,7 +20,7 @@ class LapResultsRequestValidator {
   } yield a :+ lap
 
   private def lapLineParser(line: String) = line match {
-    case LapLinePatterns.regexp(time, pilot, lap, lapTime, avgSpeed) => {
+    case LapLinePattern.regexp(time, pilot, lap, lapTime, avgSpeed) => {
       val cp = pilot.split("\\s")
       Right(LapInput(time,
         cp.head, cp.last, lap.toInt, lapTime,
