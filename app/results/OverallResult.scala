@@ -1,11 +1,12 @@
 package results
 
-import javax.inject.Singleton
+import javax.inject.{Inject, Singleton}
+import mappers.GroupedLapInputMapper
 import models.LapInput
 import play.api.libs.json.{JsArray, JsValue}
 
 @Singleton
-class OverallResult extends BaseResult {
+class OverallResult @Inject()(mapper: GroupedLapInputMapper) extends BaseResult {
 
   override def name = "overall"
 

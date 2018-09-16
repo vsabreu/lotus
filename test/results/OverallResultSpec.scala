@@ -1,11 +1,13 @@
 package results
 
 import org.scalatestplus.play.PlaySpec
-import play.api.libs.json.{JsArray, JsValue}
+import org.scalatestplus.play.guice.GuiceOneAppPerSuite
+import play.api.libs.json.JsArray
+import play.api.test.Injecting
 
-class OverallResultSpec extends PlaySpec {
+class OverallResultSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting {
 
-  val overallResult = new OverallResult
+  val overallResult = inject[OverallResult]
 
   "OverallResult" must {
 
