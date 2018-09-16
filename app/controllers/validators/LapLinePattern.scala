@@ -1,7 +1,5 @@
 package controllers.validators
 
-import scala.util.matching.Regex
-
 protected object LapLinePatterns {
   private val time = """\d{2}\:\d{2}\:\d{2}\.\d{3}"""
   private val pilotCodeAndName = """\d{3}\s.\s\w*\.*\w*"""

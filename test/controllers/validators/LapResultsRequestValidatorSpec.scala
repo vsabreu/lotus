@@ -11,24 +11,24 @@ class LapResultsRequestValidatorSpec extends PlaySpec {
 
     "return error (Left) when empty request is given" in {
       val either = validator.validate(Requests.empty)
-      either mustBe ('left)
+      either mustBe 'left
     }
 
     "return error (Left) when just the header is given" in {
       val either = validator.validate(Requests.justHeader)
-      either mustBe ('left)
+      either mustBe 'left
       either.left.get mustEqual Messages.requestMustContainerHeaderAndLaps
     }
 
     "return error (Left) when no header is given" in {
       val either = validator.validate(Requests.noHeader)
-      either mustBe ('left)
+      either mustBe 'left
       either.left.get mustEqual Messages.headerNotFoundOnRequest
     }
 
     "return valid data (Right) when a valid request is given" in {
       val either = validator.validate(Requests.valid)
-      either mustBe ('right)
+      either mustBe 'right
 
       val laps = either.right.get
       laps.size mustBe 1
@@ -38,7 +38,7 @@ class LapResultsRequestValidatorSpec extends PlaySpec {
 
     "return error (Left) when request with wrong pattern is given" in {
       val either = validator.validate(Requests.withWrongPattern)
-      either mustBe ('left)
+      either mustBe 'left
       either.left.get must include (Messages.lineDoesNotMatchInputPattern)
     }
   }
