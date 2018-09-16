@@ -1,3 +1,5 @@
 package models
 
-case class GroupedLapInput(lap: LapInput, totalTime: Double, averageSpeed: Double)
+import org.joda.time.Duration
+
+case class GroupedLapInput(lap: LapInput, totalTime: Duration, averageSpeed: Double)

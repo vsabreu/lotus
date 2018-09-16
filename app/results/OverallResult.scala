@@ -2,7 +2,7 @@ package results
 
 import javax.inject.Singleton
 import models.LapInput
-import play.api.libs.json.{JsArray, JsValue, Json}
+import play.api.libs.json.{JsArray, JsValue}
 
 @Singleton
 class OverallResult extends BaseResult {
