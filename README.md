@@ -14,12 +14,12 @@
 - [What is not covered?](#what-is-not-covered)
 
 ## Overview
-Lotus is a solution for a backend interview test, built with Scala alonside with Play Framework. Its intent is to receive and parse a raw text body with a kart race information (pilots, laps, time, average speeds, etc) and return a series of expected results as a JSON.
+Lotus is a solution for a backend interview test, built with Scala alonside with Play Framework. Its intent is to receive and parse a raw text body with a kart race information (pilots, laps, time, average speeds, etc) and return a series of expected results as a JSON. It counts with some interesting libraries and SBT plugins, and is also hosted on CircleCI for automatic builds.
 
 ## Main Purposes
 Since the idea of the interviewer company is to adhere to a reactive, non-blocking, distributed and data-driven mindset, the purpose of this exercise is to offer alongside with the proposed problem, some solutions and insights that could be a fit for their needs.
 
-I tried to show some important concepts for this scenario like a non-blocking API that is able to handle a big number of requests using async actions and futures, flexibility to quickly build new results using abstractions, objects and classes with single responsabilities, testable code and containerization for distribution.   
+I tried to show some important concepts for this scenario like a non-blocking API that is able to handle a big number of requests using async actions and futures, flexibility to quickly build new results using abstractions, objects and classes have single responsabilities, testable code and containerization for distribution.   
 
 ## The Whys
 ### Why Scala?
@@ -52,4 +52,4 @@ If you want to build a Lotus image, it is easy to do with SBT Native Packager, j
 API information will enter here.
 
 ## What is not covered?
-What is not covered here.
+A lot of important concepts were not covered in this application just for the sake of simplicity and time. In a real-world application, points like logging, instrumentation for monitoring (with counters, gauges, histograms, etc), security concerns and performance would be improved.
