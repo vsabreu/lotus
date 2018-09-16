@@ -1,9 +1,10 @@
 package results
 
 import javax.inject.{Inject, Singleton}
+import play.api.libs.json.{JsArray, JsValue, Json}
+
 import mappers.GroupedLapInputMapper
 import models.{GroupedLapInput, LapInput}
-import play.api.libs.json.{JsArray, JsValue, Json}
 
 @Singleton
 class OverallResult @Inject()(mapper: GroupedLapInputMapper) extends BaseResult {

@@ -1,8 +1,9 @@
 package mappers
 
 import javax.inject.Singleton
-import models.{GroupedLapInput, LapInput}
 import org.joda.time.Duration
+
+import models.{GroupedLapInput, LapInput}
 
 @Singleton
 class GroupedLapInputMapper {

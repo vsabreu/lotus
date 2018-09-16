@@ -4,6 +4,7 @@ import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.libs.json.JsArray
 import play.api.test.Injecting
+
 import utils.LapInputFakes
 
 class OverallResultSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting {

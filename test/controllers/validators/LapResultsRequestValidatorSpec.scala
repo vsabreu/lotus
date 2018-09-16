@@ -1,7 +1,8 @@
 package controllers.validators
 
-import utils.{Messages, Requests}
 import org.scalatestplus.play.PlaySpec
+
+import utils.{Messages, Requests}
 
 class LapResultsRequestValidatorSpec extends PlaySpec {
 

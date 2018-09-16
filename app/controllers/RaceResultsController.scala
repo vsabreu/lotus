@@ -1,13 +1,14 @@
 package controllers
 
-import contexts.DefaultContext
-import controllers.validators.LapResultsRequestValidator
 import javax.inject._
 import play.api.libs.json.Json
 import play.api.mvc._
-import results.BaseResult
 import scala.collection.JavaConverters._
 import scala.concurrent.Future
+
+import contexts.DefaultContext
+import controllers.validators.LapResultsRequestValidator
+import results.BaseResult
 
 @Singleton
 class RaceResultsController @Inject()(

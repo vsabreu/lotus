@@ -1,11 +1,12 @@
 package controllers
 
 import akka.stream.Materializer
-import utils.{Messages, Requests}
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.test.{FakeRequest, Injecting}
 import play.api.test.Helpers._
+
+import utils.{Messages, Requests}
 
 class RaceResultsControllerSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting {
 
