@@ -1,6 +1,7 @@
 package controllers
 
 import contexts.DefaultContext
+import controllers.validators.LapResultsRequestValidator
 import javax.inject._
 import play.api.mvc._
 import results.BaseResult
@@ -11,13 +12,21 @@ import scala.concurrent.Future
 class RaceResultsController @Inject()(
   cc: ControllerComponents,
   context: DefaultContext,
+  lapValidator: LapResultsRequestValidator,
   injectedResults: java.util.Set[BaseResult]
 
 ) extends AbstractController(cc) {
 
   implicit val executionContext = context.cpulookup
 
-  def results() = Action.async(parse.text) { implicit request =>
+  def results() = Action.async(parseLapResultsRequest) { implicit request =>
     Future.successful(Ok("Results will be returned here."))
+  }
+
+  private def parseLapResultsRequest = parse.using { _ =>
+    parse.tolerantText.validate { rq =>
+      lapValidator.validate(rq)
+        .left.map(BadRequest(_))
+    }
   }
 }

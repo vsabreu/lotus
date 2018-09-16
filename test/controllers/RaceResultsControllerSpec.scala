@@ -1,9 +1,9 @@
 package controllers
 
 import akka.stream.Materializer
+import controllers.utils.{Messages, Requests}
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
-import play.api.libs.json.Json
 import play.api.test.{FakeRequest, Injecting}
 import play.api.test.Helpers._
 
@@ -11,21 +11,29 @@ class RaceResultsControllerSpec extends PlaySpec with GuiceOneAppPerSuite with I
 
   implicit lazy val mat: Materializer = app.materializer
 
-  "/api/v1/results" should {
+  "/api/v1/results" must {
 
-    "returns 200 status given a valid request" in {
-
-      val request = FakeRequest(POST, "").withTextBody("")
+    "return 200 given a valid request" in {
+      val request = FakeRequest(POST, "").withTextBody(Requests.valid)
       val result = call(inject[RaceResultsController].results(), request)
 
       status(result) mustEqual OK
     }
 
-    "returns 415 status given invalid content-type" in {
-      val request = FakeRequest(POST, "").withJsonBody(Json.parse("{}"))
+    "return 400 given an empty request" in {
+      val request = FakeRequest(POST, "").withTextBody(Requests.empty)
       val result = call(inject[RaceResultsController].results(), request)
 
-      status(result) mustEqual UNSUPPORTED_MEDIA_TYPE
+      status(result) mustEqual BAD_REQUEST
+      contentAsString(result) mustEqual Messages.requestMustContainerHeaderAndLaps
+    }
+
+    "return 400 given an request without header" in {
+      val request = FakeRequest(POST, "").withTextBody(Requests.noHeader)
+      val result = call(inject[RaceResultsController].results(), request)
+
+      status(result) mustEqual BAD_REQUEST
+      contentAsString(result) mustEqual Messages.headerNotFoundOnRequest
     }
   }
 }

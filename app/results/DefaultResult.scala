@@ -9,7 +9,7 @@ class DefaultResult extends BaseResult {
 
   override def name = "default"
 
-  override def processResult(laps: Seq[LapInput]): JsValue = {
+  override def process(laps: Seq[LapInput]): JsValue = {
     Json.obj()
   }
 }
