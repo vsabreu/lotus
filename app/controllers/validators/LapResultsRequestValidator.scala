@@ -21,7 +21,7 @@ class LapResultsRequestValidator {
 
   private def lapLineParser(line: String) = line match {
     case LapLinePatterns.regexp(time, pilot, lap, lapTime, avgSpeed) => {
-      val cp = pilot.split(" ")
+      val cp = pilot.split("\\s")
       Right(LapInput(time,
         cp.head, cp.last, lap.toInt, lapTime,
         avgSpeed.replace(",", ".").toDouble)

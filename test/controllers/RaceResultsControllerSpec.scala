@@ -14,26 +14,25 @@ class RaceResultsControllerSpec extends PlaySpec with GuiceOneAppPerSuite with I
   "/api/v1/results" must {
 
     "return 200 given a valid request" in {
-      val request = FakeRequest(POST, "").withTextBody(Requests.valid)
-      val result = call(inject[RaceResultsController].results(), request)
-
+      val result = performRequest(Requests.valid)
       status(result) mustEqual OK
     }
 
     "return 400 given an empty request" in {
-      val request = FakeRequest(POST, "").withTextBody(Requests.empty)
-      val result = call(inject[RaceResultsController].results(), request)
-
+      val result = performRequest(Requests.empty)
       status(result) mustEqual BAD_REQUEST
       contentAsString(result) mustEqual Messages.requestMustContainerHeaderAndLaps
     }
 
-    "return 400 given an request without header" in {
-      val request = FakeRequest(POST, "").withTextBody(Requests.noHeader)
-      val result = call(inject[RaceResultsController].results(), request)
-
+    "return 400 given a request without header" in {
+      val result = performRequest(Requests.noHeader)
       status(result) mustEqual BAD_REQUEST
       contentAsString(result) mustEqual Messages.headerNotFoundOnRequest
     }
+  }
+
+  private def performRequest(body: String) = {
+    val request = FakeRequest(POST, "").withTextBody(body)
+    call(inject[RaceResultsController].results(), request)
   }
 }
