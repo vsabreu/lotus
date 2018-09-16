@@ -1,4 +1,4 @@
-package controllers.utils
+package utils
 
 object Requests {
   val empty = ""

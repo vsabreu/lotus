@@ -13,6 +13,7 @@ lazy val scalaTestPlus = "org.scalatestplus.play" %% "scalatestplus-play" % "3.1
 libraryDependencies ++= Seq(guice, scalaGuice, scalaTestPlus % Test)
 
 coverageEnabled := true
+coverageExcludedPackages := "<empty>;controllers.javascript;router"
 
 dockerExposedPorts := Seq(9000)
 dockerBaseImage := "openjdk:jre-alpine"

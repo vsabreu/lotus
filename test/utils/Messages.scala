@@ -1,4 +1,4 @@
-package controllers.utils
+package utils
 
 object Messages {
   val requestMustContainerHeaderAndLaps = "Request must contain header and laps data"

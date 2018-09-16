@@ -1,7 +1,7 @@
 package controllers
 
 import akka.stream.Materializer
-import controllers.utils.{Messages, Requests}
+import utils.{Messages, Requests}
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.test.{FakeRequest, Injecting}
