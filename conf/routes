@@ -1,1 +1,1 @@
-POST     /api/v1/results                           controllers.RaceResultsController.results
+POST     /api/v1/raceresults                           controllers.RaceResultsController.raceresults

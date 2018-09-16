@@ -13,20 +13,19 @@ class RaceResultsController @Inject()(
   cc: ControllerComponents,
   context: DefaultContext,
   lapValidator: LapResultsRequestValidator,
-  injectedResults: java.util.Set[BaseResult]
+  results: java.util.Set[BaseResult]
 
 ) extends AbstractController(cc) {
 
   implicit val executionContext = context.cpulookup
 
-  def results() = Action.async(parseLapResultsRequest) { implicit request =>
+  def raceresults() = Action.async(parseLapResultsRequest) { implicit request =>
     Future.successful(Ok("Results will be returned here."))
   }
 
   private def parseLapResultsRequest = parse.using { _ =>
     parse.tolerantText.validate { rq =>
-      lapValidator.validate(rq)
-        .left.map(BadRequest(_))
+      lapValidator.validate(rq).left.map(BadRequest(_))
     }
   }
 }

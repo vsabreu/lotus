@@ -23,10 +23,10 @@ I tried to show some important concepts for this scenario like a non-blocking AP
 
 ## The Whys
 ### Why Scala?
-I've got to confess, there is a long time that I have a kind of "platonic love" with Scala. It was really great to see that the company is adopting it alongside with other technologies that I believe that are great tools for nowadays problems, so Scala was my choice to solve this test.
+I've got to confess, there is a long time that I have a kind of "platonic love" with Scala. It was really great to see that the company is adopting it alongside with other technologies that I believe that are great tools for nowadays problems, so Scala was my choice to solve this test. It was a great challenge!
 
 ### Why Play?
-Play is a powerful web framework that adheres to the Reactive Manifesto, so I thought it was interesting to build something based on it since being reactive is an important concept for the company. Play enable us to be really productive, so I chose it as a bonus for the proposed problem.
+Play is a powerful web framework that adheres to the Reactive Manifesto, so I thought it was interesting to build something based on it since being reactive is an important concept for the company. Play enable us to be really productive, so I chose it as a bonus for the proposed problem and to put in practive my studies.
 
 ### Why "Lotus"?
 As the proposed problem involves racing and karts, I was inspired by old memories from watching F1 races on television. My favorite cars were the Lotus, that's why the name. As a coincidence, Lotus 72 was also considered one of the best F1 cars ever, giving this application an even more special shine!
