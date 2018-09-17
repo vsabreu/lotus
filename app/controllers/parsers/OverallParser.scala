@@ -8,6 +8,8 @@ import play.api.libs.json.{JsArray, JsValue, Json}
 class OverallParser @Inject()() extends Parser {
   override def name = "overall"
   override def parse(pilots: Seq[GroupedLapInput]): JsValue = {
+
+    val champTime = pilots.head.totalTime
     val results = ((1 to pilots.size) zip pilots).map {
       case (rank, pilot) =>
         Json.obj(
@@ -15,7 +17,8 @@ class OverallParser @Inject()() extends Parser {
           "pilot" -> Json.obj("name" -> pilot.finalLap.pilotName, "code" -> pilot.finalLap.pilotCode),
           "laps" -> Json.obj("total" -> pilot.finalLap.lap, "best" -> pilot.bestLap.get.lapTime),
           "totalTime" -> pilot.totalTime.toString,
-          "averageSpeed" -> pilot.averageSpeed
+          "averageSpeed" -> pilot.averageSpeed,
+          "timeAfterChamp" -> pilot.totalTime.minus(champTime).toString
         )
     }
     Json.obj(name -> JsArray(results))

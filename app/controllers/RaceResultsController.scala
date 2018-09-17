@@ -25,7 +25,6 @@ class RaceResultsController @Inject()(
   def raceresults() = Action.async(parseLapResultsRequest) { implicit request =>
 
     val response = Json.obj("results" -> results.asScala.map(r => {
-
       val result = r.create(request.body).get(r.name).get
       parsers.map(r.name) match {
         case Some(p) => p.parse(result)
