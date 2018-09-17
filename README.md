@@ -65,4 +65,4 @@ Below an example of a request via curl, assuming that you have a local file with
 `curl -X POST -H "Content-Type:text/plain; charset=UTF-8" --data-binary "@request" http://localhost:9000/api/v1/raceresults -v`
 
 ## What is not covered?
-Many important concepts were not covered in this application just for the sake of simplicity and time. In a real-world application, points like logging, instrumentation for monitoring (with counters, gauges, histograms, etc), security concerns and performance would be taking into account.
+Many important concepts were not covered in this application just for the sake of simplicity and time. In a real-world application, points like logging, instrumentation for monitoring (with counters, gauges, histograms, etc), security concerns and performance would be taken into account.
