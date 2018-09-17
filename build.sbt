@@ -1,7 +1,7 @@
 import sbt.Keys._
 
 name := "lotus"
-version := "1.0.0"
+version := "1.1.0"
 scalaVersion := "2.12.6"
 organization := "io.lotus"
 
@@ -19,7 +19,7 @@ dockerBaseImage := "openjdk:jre-alpine"
 dockerLabels := Map[String, String]("maintainer" -> "vsabreu.dev@gmail.com")
 
 packageName in Docker := "vsabreu/lotus"
-version in Docker := "1.0.0"
+version in Docker := "1.1.0"
 
 enablePlugins(AshScriptPlugin)
 enablePlugins(JavaAppPackaging)

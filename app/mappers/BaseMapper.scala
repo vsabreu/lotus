@@ -1,7 +1,8 @@
 package mappers
 
-import models.{GroupedLapInput, LapInput}
 import org.joda.time.Duration
+
+import models.{GroupedLapInput, LapInput}
 
 trait BaseMapper {
 

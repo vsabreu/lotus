@@ -1,7 +1,8 @@
 package controllers.parsers
 
-import models.GroupedLapInput
 import play.api.libs.json.JsValue
+
+import models.GroupedLapInput
 
 trait Parser {
   def name: String

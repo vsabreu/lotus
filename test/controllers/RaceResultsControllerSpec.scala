@@ -12,7 +12,7 @@ class RaceResultsControllerSpec extends PlaySpec with GuiceOneAppPerSuite with I
 
   implicit lazy val mat: Materializer = app.materializer
 
-  "/api/v1/results" must {
+  "/api/v1/raceresults" must {
 
     "return 200 given a valid request" in {
       val result = performRequest(Requests.valid)

@@ -3,9 +3,9 @@ package controllers
 import javax.inject._
 import play.api.libs.json.Json
 import play.api.mvc._
-
 import scala.collection.JavaConverters._
 import scala.concurrent.Future
+
 import contexts.DefaultContext
 import controllers.parsers.ResultParsers
 import controllers.validators.LapResultsRequestValidator

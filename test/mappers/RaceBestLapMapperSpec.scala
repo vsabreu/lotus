@@ -1,6 +1,7 @@
 package mappers
 
 import org.scalatestplus.play.PlaySpec
+
 import utils.LapInputFakes
 
 class RaceBestLapMapperSpec extends PlaySpec {

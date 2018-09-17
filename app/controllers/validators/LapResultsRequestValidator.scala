@@ -1,6 +1,7 @@
 package controllers.validators
 
 import javax.inject.Inject
+
 import models.LapInput
 
 @Inject

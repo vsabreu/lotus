@@ -1,8 +1,9 @@
 package controllers.parsers
 
 import javax.inject.{Inject, Singleton}
-import models.GroupedLapInput
 import play.api.libs.json.{JsValue, Json}
+
+import models.GroupedLapInput
 
 @Singleton
 class RaceBestLapParser @Inject()() extends Parser {

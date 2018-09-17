@@ -1,8 +1,9 @@
 package controllers.parsers
 
 import javax.inject.{Inject, Singleton}
-import models.GroupedLapInput
 import play.api.libs.json.{JsArray, JsValue, Json}
+
+import models.GroupedLapInput
 
 @Singleton
 class OverallParser @Inject()() extends Parser {

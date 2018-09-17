@@ -1,7 +1,8 @@
 import com.google.inject.AbstractModule
 import com.google.inject.multibindings.Multibinder
-import controllers.parsers.{OverallParser, Parser, RaceBestLapParser, ResultParsers}
 import net.codingwell.scalaguice.ScalaModule
+
+import controllers.parsers.{OverallParser, Parser, RaceBestLapParser, ResultParsers}
 import mappers.GroupedLapInputMapper
 import results.{BaseResult, OverallResult, RaceBestLapResult}
 

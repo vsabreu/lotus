@@ -3,6 +3,7 @@ package results
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite
 import play.api.test.Injecting
+
 import utils.LapInputFakes
 
 class RaceBestLapResultSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting {

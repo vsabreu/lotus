@@ -1,6 +1,7 @@
 package mappers
 
 import javax.inject.Singleton
+
 import models.{GroupedLapInput, LapInput}
 
 @Singleton
