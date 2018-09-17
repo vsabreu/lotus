@@ -4,14 +4,13 @@ import javax.inject.Singleton
 import models.{GroupedLapInput, LapInput}
 
 @Singleton
-class GroupedLapInputMapper extends BaseMapper {
+class RaceBestLapMapper extends BaseMapper {
 
   def map(laps: Seq[LapInput]): Seq[GroupedLapInput] = {
-    val groupedLaps = laps.foldLeft(Map[String, GroupedLapInput]()) { (acc, lap) =>
-      val grouped = group(acc.get(lap.pilotCode), lap)
-      acc + (lap.pilotCode -> grouped)
-    }
-    groupedLaps.values.toSeq
+    val bestLap = laps.sortBy(l => toMillis(l.lapTime).getMillis).head
+    Seq(
+      GroupedLapInput(bestLap, toMillis(bestLap.lapTime), 0)
+    )
   }
 
   private def group(key: Option[GroupedLapInput], lap: LapInput) = key match {

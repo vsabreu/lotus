@@ -23,9 +23,9 @@ class OverallResultSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting
       results.keySet.exists(_ == "overall") mustBe true
 
       val resultData = results.get("overall").get
-      val winner = resultData.head
-      winner.lap.pilotName mustBe "F.MASSA"
-      winner.lap.pilotCode mustBe "038"
+      val champion = resultData.head
+      champion.lap.pilotName mustBe "F.MASSA"
+      champion.lap.pilotCode mustBe "038"
     }
   }
 }
