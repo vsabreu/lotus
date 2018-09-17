@@ -1,31 +1,16 @@
 package results
 
 import javax.inject.{Inject, Singleton}
-import play.api.libs.json.{JsArray, JsValue, Json}
 
 import mappers.GroupedLapInputMapper
 import models.{GroupedLapInput, LapInput}
 
 @Singleton
 class OverallResult @Inject()(mapper: GroupedLapInputMapper) extends BaseResult {
-
   override def name = "overall"
-
-  override def process(laps: Seq[LapInput]): JsValue = laps match {
-    case Nil => JsArray.empty
-    case _ => {
-      val pilots = finalLaps(mapper.map(laps)).sortBy(_.totalTime.getMillis)
-      val results = ((1 to pilots.size) zip pilots).map {
-        case (rank, pilot) =>
-        Json.obj(
-          "rank" -> rank,
-          "pilot" -> Json.obj("name" -> pilot.lap.pilotName, "code" -> pilot.lap.pilotCode),
-          "totalLaps" -> pilot.lap.lap,
-          "totalTime" -> pilot.totalTime.toString
-        )
-      }
-      JsArray(results)
-    }
+  override def process(laps: Seq[LapInput]): Seq[GroupedLapInput] = laps match {
+    case Nil => Seq()
+    case _ => finalLaps(mapper.map(laps)).sortBy(_.totalTime.getMillis)
   }
 
   private def finalLaps(laps: Seq[GroupedLapInput]): Seq[GroupedLapInput] = {

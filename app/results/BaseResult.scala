@@ -1,10 +1,13 @@
 package results
 
-import models.LapInput
-import play.api.libs.json.{JsValue, Json}
+import models.{GroupedLapInput, LapInput}
 
 trait BaseResult {
   def name: String
-  def process(laps: Seq[LapInput]): JsValue
-  def create(laps: Seq[LapInput]) = Json.obj("resultName" -> name, "data" -> process(laps))
+  protected def process(laps: Seq[LapInput]): Seq[GroupedLapInput]
+
+  def create(laps: Seq[LapInput]) = laps match {
+    case Nil => Map[String, Seq[GroupedLapInput]]()
+    case _ => Map[String, Seq[GroupedLapInput]](name -> process(laps))
+  }
 }
