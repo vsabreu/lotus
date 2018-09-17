@@ -8,7 +8,6 @@ class ResultParsers @Inject()(
   parsers: java.util.Set[Parser]
 ) {
   def map(name: String): Option[Parser] = {
-    parsers.asScala.map(p => (p.name, Some(p)))
-      .toMap.get(name).getOrElse(None)
+    parsers.asScala.map(p => (p.name, Some(p))).toMap.get(name).getOrElse(None)
   }
 }

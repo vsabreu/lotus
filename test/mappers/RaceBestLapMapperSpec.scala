@@ -1,14 +1,13 @@
 package mappers
 
 import org.scalatestplus.play.PlaySpec
-
 import utils.LapInputFakes
 
-class GroupedLapInputMapperSpec extends PlaySpec {
+class RaceBestLapMapperSpec extends PlaySpec {
 
-  val mapper = new GroupedLapInputMapper
+  val mapper = new RaceBestLapMapper
 
-  "GroupedLapInputMapper" must {
+  "RaceBestLapMapper" must {
 
     "return an empty GroupedLapInput seq given an empty LapInput seq" in {
       val grouped = mapper.map(List())
@@ -19,8 +18,8 @@ class GroupedLapInputMapperSpec extends PlaySpec {
       val laps = LapInputFakes.validSeq
       val grouped = mapper.map(LapInputFakes.validSeq)
 
-      grouped.size mustBe 2
-      grouped.tail.size mustBe 1
+      grouped.size mustBe 1
+      grouped.tail.size mustBe 0
       grouped.head.finalLap.pilotName mustBe "F.MASSA"
     }
   }

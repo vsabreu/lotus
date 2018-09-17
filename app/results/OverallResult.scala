@@ -17,11 +17,11 @@ class OverallResult @Inject()(mapper: GroupedLapInputMapper) extends BaseResult 
   }
 
   private def finalLaps(laps: Seq[GroupedLapInput]): Seq[GroupedLapInput] = {
-    val lapsByPilotCode = laps.groupBy(_.lap.pilotCode)
-    laps.find(_.lap.lap == FinalLap) match {
+    val lapsByPilotCode = laps.groupBy(_.finalLap.pilotCode)
+    laps.find(_.finalLap.lap == FinalLap) match {
       case Some(champion) => {
         champion +: lapsByPilotCode
-          .filterNot(_._1 == champion.lap.pilotCode)
+          .filterNot(_._1 == champion.finalLap.pilotCode)
           .flatMap { case (_, lap) => lap }
           .toSeq
       }

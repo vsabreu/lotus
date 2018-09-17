@@ -8,6 +8,7 @@ import utils.LapInputFakes
 
 class OverallResultSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting {
 
+  val Overall = "overall"
   val overallResult = inject[OverallResult]
 
   "OverallResult" must {
@@ -20,12 +21,12 @@ class OverallResultSpec extends PlaySpec with GuiceOneAppPerSuite with Injecting
     "return valid results given valid input" in {
       val results = overallResult.create(LapInputFakes.validSeq)
 
-      results.keySet.exists(_ == "overall") mustBe true
+      results.keySet.exists(_ == Overall) mustBe true
 
-      val resultData = results.get("overall").get
+      val resultData = results.get(Overall).get
       val champion = resultData.head
-      champion.lap.pilotName mustBe "F.MASSA"
-      champion.lap.pilotCode mustBe "038"
+      champion.finalLap.pilotName mustBe "F.MASSA"
+      champion.finalLap.pilotCode mustBe "038"
     }
   }
 }
