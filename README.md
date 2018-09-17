@@ -1,4 +1,4 @@
-# Lotus 
+# Lotus ![alt text](https://sc02.alicdn.com/kf/HTB1fz8uQXXXXXXgXpXX760XFXXXX/berg-pedal-go-kart-4-wheel-pedal.png_50x50.png "Lotus")
 [![CircleCI](https://circleci.com/gh/vsabreu/lotus.svg?style=shield)](https://circleci.com/gh/vsabreu/lotus)
 ![GitHub tag](https://img.shields.io/github/tag/vsabreu/lotus.svg)
 
