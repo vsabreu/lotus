@@ -14,9 +14,10 @@ class OverallParser extends Parser {
           "rank" -> rank,
           "pilot" -> Json.obj("name" -> pilot.lap.pilotName, "code" -> pilot.lap.pilotCode),
           "totalLaps" -> pilot.lap.lap,
-          "totalTime" -> pilot.totalTime.toString
+          "totalTime" -> pilot.totalTime.toString,
+          "averageSpeed" -> pilot.averageSpeed
         )
     }
-    JsArray(results)
+    Json.obj(name -> JsArray(results))
   }
 }
